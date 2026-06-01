@@ -1,0 +1,209 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Unica+One&display=swap");
+
+@theme {
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  /* ── Design-doc aliases ── */
+  --color-paper:        #f3f1ea;
+  --color-paper-2:      #ebe8df;
+  --color-paper-3:      #e3dfd2;
+  --color-surface:      #fbfaf6;
+  --color-ink:          #141414;
+  --color-ink-2:        #3a3a3a;
+  --color-ink-3:        #6b6b6b;
+  --color-ink-4:        #8f8f8f;
+  --color-hairline:     #d9d5c7;
+  --color-hairline-2:   #c8c4b6;
+  --color-sage:         #3a4f3a;
+  --color-sage-2:       #2c3d2c;
+  --color-sage-tint:    #d9e0d6;
+
+  /* ── Numeric scale (kept for Navbar/existing code) ── */
+  --color-primary-100: #d9e0d6;
+  --color-primary-600: #3a4f3a;
+  --color-primary-700: #2c3d2c;
+
+  --color-secondary-400: #8f8f8f;
+  --color-secondary-500: #6b6b6b;
+  --color-secondary-600: #3a3a3a;
+  --color-secondary-900: #141414;
+
+  --color-tertiary-100: #fbfaf6;
+  --color-tertiary-200: #f3f1ea;
+  --color-tertiary-300: #ebe8df;
+  --color-tertiary-400: #e3dfd2;
+  --color-tertiary-500: #d9d5c7;
+  --color-tertiary-600: #c8c4b6;
+
+  /* ── Fluid type scale ── */
+  --font-size-mega:    clamp(72px, 11vw, 196px);
+  --line-height-mega:  0.88;
+  --letter-spacing-mega: -0.04em;
+
+  --font-size-display: clamp(56px, 8vw, 140px);
+  --line-height-display: 0.92;
+  --letter-spacing-display: -0.035em;
+
+  --font-size-h1:      clamp(44px, 6.4vw, 112px);
+  --font-size-h2:      clamp(32px, 4.4vw, 72px);
+  --font-size-h3:      clamp(24px, 2.6vw, 40px);
+  --font-size-h4:      clamp(20px, 1.8vw, 26px);
+  --font-size-lead:    clamp(17px, 1.4vw, 20px);
+  --font-size-stat:    clamp(56px, 6.2vw, 96px);
+}
+
+@layer base {
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  *::-webkit-scrollbar {
+    display: none;
+  }
+  html, body {
+    background: var(--color-tertiary-200);
+    color: var(--color-secondary-900);
+    font-family: "DM Sans", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background-image:
+      radial-gradient(color-mix(in oklab, var(--color-secondary-900), transparent 98%) 1px, transparent 1px),
+      radial-gradient(color-mix(in oklab, var(--color-secondary-900), transparent 99%) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+  }
+  ::selection {
+    background: var(--color-primary-600);
+    color: var(--color-tertiary-200);
+  }
+}
+
+@utility request-access-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border: 1.5px solid var(--color-secondary-900);
+  text-transform: uppercase;
+  color: var(--color-secondary-900);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  background: transparent;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: -1.5px;
+    width: calc(100% + 3px);
+    height: calc(100% - 10px);
+    background-color: var(--color-tertiary-200);
+    transition: transform 0.3s ease-in-out;
+    transform: scaleY(1);
+    z-index: 1;
+  }
+
+  &:hover::before {
+    transform: scaleY(0);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: -1.5px;
+    height: calc(100% + 3px);
+    width: calc(100% - 10px);
+    background-color: var(--color-tertiary-200);
+    transition: transform 0.3s ease-in-out;
+    transition-delay: 0.3s;
+    transform: scaleX(1);
+    z-index: 1;
+  }
+
+  &:hover::after {
+    transform: scaleX(0);
+  }
+
+  & span {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+@utility request-access-btn-dark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  color: var(--color-paper);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: -1.5px;
+    width: calc(100% + 3px);
+    height: calc(100% - 10px);
+    background-color: rgba(10, 12, 10, 0.82);
+    transition: transform 0.3s ease-in-out;
+    transform: scaleY(1);
+    z-index: 1;
+  }
+
+  &:hover::before {
+    transform: scaleY(0);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: -1.5px;
+    height: calc(100% + 3px);
+    width: calc(100% - 10px);
+    background-color: rgba(10, 12, 10, 0.82);
+    transition: transform 0.3s ease-in-out;
+    transition-delay: 0.3s;
+    transform: scaleX(1);
+    z-index: 1;
+  }
+
+  &:hover::after {
+    transform: scaleX(0);
+  }
+
+  & span {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+@utility nav-blur {
+  background: color-mix(in oklab, var(--color-tertiary-200), transparent 12%);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+}
+
+@utility text-mega {
+  font-size: clamp(60px, 9vw, 160px);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+}
