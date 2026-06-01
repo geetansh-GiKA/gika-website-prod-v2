@@ -207,3 +207,13 @@
   line-height: 0.88;
   letter-spacing: -0.04em;
 }
+
+@keyframes pulseBar {
+  from { opacity: 0.3; }
+  to   { opacity: 0.8; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

@@ -10,38 +10,36 @@ import { CTA } from "./Components/CTA/CTA.tsx";
 
 export const Home: FC = () => {
   return (
-    <>
+    <div className="w-full overflow-x-hidden">
       <Navbar />
-      <div style={{ paddingLeft: "240px", paddingRight: "240px" }}>
+
+      <div className="px-0 sm:px-10 md:px-20 lg:px-30 xl:px-60">
         <div className="min-h-screen border-x border-secondary-900/70">
           <Hero />
         </div>
       </div>
+
       <Marquee />
-      <div style={{ paddingLeft: "240px", paddingRight: "240px" }}>
+
+      <div className="px-0 sm:px-10 md:px-20 lg:px-30 xl:px-60">
         <div className="min-h-screen border-b border-l border-r border-secondary-900/70">
           <FlowArtDefaultDemo />
         </div>
       </div>
-      <div
-        style={{ paddingLeft: "240px", paddingRight: "240px" }}
-        className="mt-4"
-      >
+
+      <div className="px-0 sm:px-10 md:px-20 lg:px-30 xl:px-60 mt-4">
         <Customers />
       </div>
-      <div
-        style={{ paddingLeft: "240px", paddingRight: "240px" }}
-        className="mt-4"
-      >
+
+      <div className="px-0 sm:px-10 md:px-20 lg:px-30 xl:px-60 mt-4">
         <FAQ />
       </div>
-      <div
-        style={{ paddingLeft: "120px", paddingRight: "120px" }}
-        className="mt-12"
-      >
+
+      <div className="px-4 sm:px-10 md:px-16 lg:px-20 xl:px-30 mt-12">
         <CTA />
       </div>
+
       <Footer />
-    </>
+    </div>
   );
 };

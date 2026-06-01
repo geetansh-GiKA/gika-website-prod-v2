@@ -1,33 +1,60 @@
+import { useEffect } from "react";
 import { NAV_LINKS } from "../config/navLinks";
 
 type MobileMenuProps = {
   open: boolean;
+  onClose: () => void;
 };
 
-export const MobileMenu = ({ open }: MobileMenuProps) => (
+export const MobileMenu = ({ open, onClose }: MobileMenuProps) => {
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
+  return (
   <div
-    className={`md:hidden overflow-hidden transition-[max-height] duration-300 border-t border-tertiary-500 ${
-      open ? "max-h-64" : "max-h-0"
+    className={`fixed inset-0 z-50 flex flex-col bg-tertiary-200 transition-opacity duration-300 md:hidden ${
+      open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
     }`}
   >
-    <div className="flex flex-col py-4 gap-1">
+    {/* Header row — mirrors the main navbar exactly */}
+    <div className="flex items-center justify-between px-[clamp(20px,3vw,48px)] py-3.5 border-b border-secondary-900/70">
+      <a href="/" onClick={onClose}>
+        GIKA AI
+      </a>
+      <button
+        onClick={onClose}
+        aria-label="Close menu"
+        className="w-8 h-8 flex items-center justify-center"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <line x1="1" y1="1" x2="15" y2="15" />
+          <line x1="15" y1="1" x2="1" y2="15" />
+        </svg>
+      </button>
+    </div>
+
+    {/* Nav links */}
+    <nav className="flex flex-col flex-1 px-[clamp(20px,3vw,48px)] pt-6 gap-1">
       {NAV_LINKS.map(({ label, href }) => (
         <a
           key={label}
           href={href}
-          className="px-5 py-2.5 text-sm text-secondary-600 hover:text-secondary-900 hover:bg-tertiary-300 transition-colors"
+          onClick={onClose}
+          className="py-4 text-2xl font-medium text-ink border-b border-hairline last:border-0 hover:text-ink-2 transition-colors"
         >
           {label}
         </a>
       ))}
-      <div className="px-5 pt-3 mt-1 border-t border-tertiary-500">
-        <a
-          href="#contact"
-          className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium border border-secondary-900 rounded-full text-secondary-900 hover:bg-secondary-900 hover:text-tertiary-200 transition-colors"
-        >
-          Request access
-        </a>
-      </div>
+    </nav>
+
+    {/* CTA */}
+    <div className="px-[clamp(20px,3vw,48px)] pb-10">
+      <a href="#contact" onClick={onClose} className="request-access-btn w-full justify-center">
+        <span>Request access</span>
+      </a>
     </div>
   </div>
-);
+  );
+};

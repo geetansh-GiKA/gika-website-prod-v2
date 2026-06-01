@@ -1,4 +1,5 @@
 import FlowArt, { FlowSection } from "./StoryScroll";
+import { GlobeViz } from "./GlobeViz";
 
 const sections = [
   {
@@ -32,7 +33,7 @@ const sections = [
       </>
     ),
     body: "A global community built for artists, by artists. We're rewriting the rules of how creative work gets seen, shared, and valued.",
-    img: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=1200&q=80&auto=format&fit=crop",
+    img: "",
     imgCaption: "FIG. 02 · THE ARCHIVE, ORDERED",
     bg: "#111",
     dark: false,
@@ -170,26 +171,31 @@ export default function FlowArtDefaultDemo() {
                 </div>
               </div>
 
-              {/* RIGHT — image column */}
+              {/* RIGHT — image / viz column */}
               <div className="relative hidden overflow-hidden lg:block">
-                <img
-                  src={img}
-                  alt={imgCaption}
-                  className="absolute inset-0 h-full w-full object-cover"
-                  loading="lazy"
-                />
-                {/* caption */}
-                <div className="absolute bottom-6 right-6">
-                  <span
-                    className="inline-block px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.2em]"
-                    style={{
-                      backgroundColor: dark ? "rgba(237,234,227,0.9)" : "rgba(17,17,17,0.75)",
-                      color: dark ? "#1a1a1a" : "#f0ece4",
-                    }}
-                  >
-                    {imgCaption}
-                  </span>
-                </div>
+                {num === "02" ? (
+                  <GlobeViz />
+                ) : (
+                  <>
+                    <img
+                      src={img!}
+                      alt={imgCaption}
+                      className="absolute inset-0 h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute bottom-6 right-6">
+                      <span
+                        className="inline-block px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.2em]"
+                        style={{
+                          backgroundColor: dark ? "rgba(237,234,227,0.9)" : "rgba(17,17,17,0.75)",
+                          color: dark ? "#1a1a1a" : "#f0ece4",
+                        }}
+                      >
+                        {imgCaption}
+                      </span>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </FlowSection>
