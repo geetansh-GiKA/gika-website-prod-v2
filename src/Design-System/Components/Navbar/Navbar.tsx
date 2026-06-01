@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Logo } from "./components/Logo";
 import { NavLinks } from "./components/NavLinks";
 import { MobileMenu } from "./components/MobileMenu";
@@ -18,9 +19,9 @@ export const Navbar = () => {
           </div>
 
           <div className="ml-auto flex items-center gap-3">
-            <a href="#contact" className="hidden md:inline-flex request-access-btn">
+            <Link to="/contact" className="hidden md:inline-flex request-access-btn">
               <span>Request access</span>
-            </a>
+            </Link>
 
             <button
               className={`md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.25 transition-opacity duration-200 ${mobileOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}

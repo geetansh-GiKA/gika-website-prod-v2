@@ -3,10 +3,11 @@ import { FooterColumn } from "./components/FooterColumn";
 import { FooterWordmark } from "./components/FooterWordmark";
 
 export const Footer = () => (
-  <footer className="bg-ink text-paper pt-20 pb-8 mt-24">
-    <div className="mx-auto w-full max-w-360 px-[clamp(20px,3vw,40px)]">
+  <footer className="bg-ink text-paper pt-20 pb-8">
+    <div className="mx-auto w-full max-w-360 px-[clamp(10px,2vw,20px)]">
       <h2 className="font-light text-mega text-paper text-balance uppercase">
-        GROUNDED <span className="font-light text-sage-tint">MACHINES</span>,{" "}
+        GROUNDED{" "}
+        <span className="font-light text-sage-tint italic">MACHINES</span>,{" "}
         <br />
         for serious work.
       </h2>

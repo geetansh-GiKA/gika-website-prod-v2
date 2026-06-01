@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { NAV_LINKS } from "../config/navLinks";
 
 type MobileMenuProps = {
@@ -51,9 +52,9 @@ export const MobileMenu = ({ open, onClose }: MobileMenuProps) => {
 
     {/* CTA */}
     <div className="px-[clamp(20px,3vw,48px)] pb-10">
-      <a href="#contact" onClick={onClose} className="request-access-btn w-full justify-center">
+      <Link to="/contact" onClick={onClose} className="request-access-btn w-full justify-center">
         <span>Request access</span>
-      </a>
+      </Link>
     </div>
   </div>
   );

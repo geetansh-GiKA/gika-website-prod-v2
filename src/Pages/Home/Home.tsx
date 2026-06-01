@@ -35,7 +35,7 @@ export const Home: FC = () => {
         <FAQ />
       </div>
 
-      <div className="px-4 sm:px-10 md:px-16 lg:px-20 xl:px-30 mt-12">
+      <div className="px-4 sm:px-10 md:px-16 lg:px-20 xl:px-30 mt-12 mb-24">
         <CTA />
       </div>
 
