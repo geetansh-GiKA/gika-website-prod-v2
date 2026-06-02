@@ -219,6 +219,17 @@
   letter-spacing: -0.04em;
 }
 
+/* Journal prose drop-cap */
+.prose-dropcap::first-letter {
+  font-weight: 200;
+  font-size: clamp(80px, 7vw, 132px);
+  line-height: 0.86;
+  float: left;
+  padding: 8px 16px 0 0;
+  color: var(--color-ink);
+  letter-spacing: -0.04em;
+}
+
 @keyframes pulseBar {
   from {
     opacity: 0.3;
@@ -235,4 +246,212 @@
   to {
     transform: translateX(-50%);
   }
+}
+
+/* ── PreLoader ── */
+.preloader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-paper);
+  background-image:
+    radial-gradient(
+      color-mix(in oklab, var(--color-secondary-900), transparent 98%) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      color-mix(in oklab, var(--color-secondary-900), transparent 99%) 1px,
+      transparent 1px
+    );
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 2px;
+  overflow: hidden;
+}
+
+.preloader-overlay .osmo-credits {
+  display: none;
+}
+
+/* The outer section takes full width and centers the word widget */
+.cloneable {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+}
+
+/* Wrapper: tall enough to show ~3 words */
+.looping-words {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  /* one word slot = 1em * line-height; show 3 slots */
+  height: calc(3 * clamp(64px, 10vw, 140px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* overflow visible so bracket corners are not clipped */
+  overflow: visible;
+}
+
+/* Scrolling container clips the list; fade sits here too */
+.looping-words__containers {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* The <ul> — GSAP moves this vertically */
+ul.looping-words__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Each <li> — must be the same fixed height as one slot */
+li.looping-words__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: clamp(64px, 10vw, 140px);
+  width: 100%;
+}
+
+.looping-words__p {
+  font-size: clamp(48px, 9vw, 128px);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-ink);
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+
+/* Top/bottom fade — hides words above and below the selected slot */
+.looping-words__fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--color-paper) 0%,
+    transparent 28%,
+    transparent 72%,
+    var(--color-paper) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Selector bracket — centered vertically, width driven entirely by GSAP */
+.looping-words__selector {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: calc(clamp(64px, 10vw, 140px) + 16px);
+  /* no static width — GSAP sets it to the <p> text pixel width */
+  width: 0;
+  box-sizing: content-box;
+  /* equal padding on all sides so brackets sit equidistant from the text */
+  padding: 0 20px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* The 4 edge divs form the corner brackets */
+.looping-words__edge {
+  position: absolute;
+  background: var(--color-ink);
+}
+
+/* Top-left horizontal */
+.looping-words__edge:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 3px;
+}
+
+/* Top-left vertical */
+.looping-words__edge:nth-child(1)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 24px;
+  background: var(--color-ink);
+}
+
+/* Top-right horizontal */
+.looping-words__edge.is--2 {
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 3px;
+  background: var(--color-ink);
+}
+
+/* Top-right vertical */
+.looping-words__edge.is--2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 24px;
+  background: var(--color-ink);
+}
+
+/* Bottom-left horizontal */
+.looping-words__edge.is--3 {
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 3px;
+  background: var(--color-ink);
+}
+
+/* Bottom-left vertical */
+.looping-words__edge.is--3::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  height: 24px;
+  background: var(--color-ink);
+}
+
+/* Bottom-right horizontal */
+.looping-words__edge.is--4 {
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 3px;
+  background: var(--color-ink);
+}
+
+/* Bottom-right vertical */
+.looping-words__edge.is--4::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 3px;
+  height: 24px;
+  background: var(--color-ink);
 }
