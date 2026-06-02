@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { NAV_LINKS } from "../config/navLinks";
+import { Logo } from "./Logo";
 
 type MobileMenuProps = {
   open: boolean;
@@ -22,7 +23,7 @@ export const MobileMenu = ({ open, onClose }: MobileMenuProps) => {
     {/* Header row — mirrors the main navbar exactly */}
     <div className="flex items-center justify-between px-[clamp(20px,3vw,48px)] py-3.5 border-b border-secondary-900/70">
       <a href="/" onClick={onClose}>
-        GIKA AI
+        <Logo/>
       </a>
       <button
         onClick={onClose}
