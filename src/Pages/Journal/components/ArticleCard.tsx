@@ -35,7 +35,7 @@ export const ArticleCard: FC<Props> = ({ article }) => (
     <h3
       className="font-normal leading-[1.12] mb-2 line-clamp-2"
       style={{
-        fontSize: 'clamp(20px,2vw,28px)',
+        fontSize: 'clamp(17px,1.6vw,22px)',
         letterSpacing: '-0.018em',
         color: 'var(--color-ink)',
       }}
