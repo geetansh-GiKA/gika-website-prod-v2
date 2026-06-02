@@ -1,6 +1,6 @@
 interface FooterColumnProps {
-  heading: string;
-  links: ReadonlyArray<{ label: string; href: string }>;
+  heading: string
+  links: ReadonlyArray<{ label: string; href: string }>
 }
 
 export const FooterColumn = ({ heading, links }: FooterColumnProps) => (
@@ -9,9 +9,13 @@ export const FooterColumn = ({ heading, links }: FooterColumnProps) => (
       {heading}
     </h5>
     {links.map(({ label, href }) => (
-      <a key={label} href={href} className="block py-1 text-white/78 text-sm hover:text-white transition-colors">
+      <a
+        key={label}
+        href={href}
+        className="block py-1 text-white/78 text-sm hover:text-white transition-colors"
+      >
         {label}
       </a>
     ))}
   </div>
-);
+)

@@ -1,8 +1,8 @@
-import type { FC } from "react";
-import { Navbar } from "../../Design-System/Components/Navbar/Navbar";
-import { Footer } from "../../Design-System/Components/Footer/Footer";
-import { ContactSidebar } from "./components/ContactSidebar";
-import { ContactForm } from "./components/ContactForm";
+import type { FC } from 'react'
+import { Navbar } from '../../Design-System/Components/Navbar/Navbar'
+import { Footer } from '../../Design-System/Components/Footer/Footer'
+import { ContactSidebar } from './components/ContactSidebar'
+import { ContactForm } from './components/ContactForm'
 
 export const Contact: FC = () => (
   <div className="w-full overflow-x-hidden">
@@ -19,4 +19,4 @@ export const Contact: FC = () => (
 
     <Footer />
   </div>
-);
+)

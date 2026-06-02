@@ -1,41 +1,25 @@
-import { useState, type FC } from "react";
-import { ContactField } from "./ContactField";
-import { CompanySizeSelect } from "./CompanySizeSelect";
+import { useState, type FC } from 'react'
+import { ContactField } from './ContactField'
+import { CompanySizeSelect } from './CompanySizeSelect'
 
 export const ContactForm: FC = () => {
-  const [companySize, setCompanySize] = useState("");
+  const [companySize, setCompanySize] = useState('')
 
   return (
     <div className="px-8 md:px-12 py-16">
-      <form
-        className="flex flex-col gap-8"
-        onSubmit={(e) => e.preventDefault()}
-      >
+      <form className="flex flex-col gap-8" onSubmit={(e) => e.preventDefault()}>
         <div className="grid grid-cols-2 gap-6">
           <ContactField id="first-name" label="First name" placeholder="Maya" />
-          <ContactField
-            id="last-name"
-            label="Last name"
-            placeholder="Reinhardt"
-          />
+          <ContactField id="last-name" label="Last name" placeholder="Reinhardt" />
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          <ContactField
-            id="email"
-            label="Email"
-            type="email"
-            placeholder="maya@northwind.com"
-          />
+          <ContactField id="email" label="Email" type="email" placeholder="maya@northwind.com" />
           <ContactField id="company" label="Company" placeholder="Northwind" />
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          <ContactField
-            id="role"
-            label="Role"
-            placeholder="Director, Data Engineering"
-          />
+          <ContactField id="role" label="Role" placeholder="Director, Data Engineering" />
           <CompanySizeSelect value={companySize} onChange={setCompanySize} />
         </div>
 
@@ -50,13 +34,10 @@ export const ContactForm: FC = () => {
           />
         </div>
 
-        <button
-          type="submit"
-          className="request-access-btn self-start mt-2 w-full justify-center"
-        >
+        <button type="submit" className="request-access-btn self-start mt-2 w-full justify-center">
           <span>Submit request</span>
         </button>
       </form>
     </div>
-  );
-};
+  )
+}

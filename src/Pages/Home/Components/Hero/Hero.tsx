@@ -1,43 +1,43 @@
-import React from "react";
-import { TrendingUp } from "lucide-react";
+import React from 'react'
+import { TrendingUp } from 'lucide-react'
 
 // ── Gradient bars background ──────────────────────────────────────────────────
 
 export const GradientBars: React.FC = () => {
-  const numBars = 15;
+  const numBars = 15
 
   const calculateHeight = (index: number, total: number) => {
-    const position = index / (total - 1);
-    const center = 0.5;
-    const distanceFromCenter = Math.abs(position - center);
-    const heightPercentage = Math.pow(distanceFromCenter * 2, 1.2);
-    return 30 + 70 * heightPercentage;
-  };
+    const position = index / (total - 1)
+    const center = 0.5
+    const distanceFromCenter = Math.abs(position - center)
+    const heightPercentage = Math.pow(distanceFromCenter * 2, 1.2)
+    return 30 + 70 * heightPercentage
+  }
 
   return (
     <div className="absolute inset-0 z-0 overflow-hidden">
       <div
         className="flex h-full"
-        style={{ transform: "translateZ(0)", backfaceVisibility: "hidden" }}
+        style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
       >
         {Array.from({ length: numBars }).map((_, index) => (
           <div
             key={index}
             style={{
-              flex: "1 0 calc(100% / 15)",
-              maxWidth: "calc(100% / 15)",
-              height: "100%",
-              background: "linear-gradient(to top, #3a4f3a, transparent)",
+              flex: '1 0 calc(100% / 15)',
+              maxWidth: 'calc(100% / 15)',
+              height: '100%',
+              background: 'linear-gradient(to top, #3a4f3a, transparent)',
               transform: `scaleY(${calculateHeight(index, numBars) / 100})`,
-              transformOrigin: "bottom",
-              boxSizing: "border-box",
+              transformOrigin: 'bottom',
+              boxSizing: 'border-box',
             }}
           />
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
 // ── Analytics dashboard ───────────────────────────────────────────────────────
 
@@ -56,23 +56,23 @@ const Dashboard: React.FC = () => {
     { a: 85, b: 72 },
     { a: 91, b: 88 },
     { a: 78, b: 100 },
-  ];
-  const max = Math.max(...chartData.flatMap((d) => [d.a, d.b]));
+  ]
+  const max = Math.max(...chartData.flatMap((d) => [d.a, d.b]))
 
   const metrics = [
-    { label: "Entities resolved", value: "2.4M", change: "+12%", up: true },
-    { label: "Avg confidence", value: "94.2%", change: "+3.1%", up: true },
-    { label: "Conflicts flagged", value: "1,847", change: "-8%", up: false },
-    { label: "Queries / day", value: "38.5K", change: "+21%", up: true },
-  ];
+    { label: 'Entities resolved', value: '2.4M', change: '+12%', up: true },
+    { label: 'Avg confidence', value: '94.2%', change: '+3.1%', up: true },
+    { label: 'Conflicts flagged', value: '1,847', change: '-8%', up: false },
+    { label: 'Queries / day', value: '38.5K', change: '+21%', up: true },
+  ]
 
   return (
     <div
       className="w-full max-w-4xl mx-auto flex flex-col overflow-hidden relative"
       style={{
-        border: "1px solid var(--color-hairline)",
-        boxShadow: "0 2px 40px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)",
-        height: "clamp(280px, 52vw, 520px)",
+        border: '1px solid var(--color-hairline)',
+        boxShadow: '0 2px 40px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)',
+        height: 'clamp(280px, 52vw, 520px)',
       }}
     >
       {/* Diagonal hatch — full dashboard background */}
@@ -132,7 +132,7 @@ const Dashboard: React.FC = () => {
                 {value}
               </span>
               <span
-                className={`font-mono text-[8px] md:text-[9px] tracking-[0.06em] ${up ? "text-sage" : "text-red-500/70"}`}
+                className={`font-mono text-[8px] md:text-[9px] tracking-[0.06em] ${up ? 'text-sage' : 'text-red-500/70'}`}
               >
                 {change} vs last mo.
               </span>
@@ -152,15 +152,15 @@ const Dashboard: React.FC = () => {
                 <span className="flex items-center gap-1 font-mono text-[7px] md:text-[8px] text-ink-4">
                   <span
                     className="inline-block w-1.5 h-1.5 md:w-2 md:h-2"
-                    style={{ background: "#1a2a1a" }}
-                  />{" "}
+                    style={{ background: '#1a2a1a' }}
+                  />{' '}
                   frontier
                 </span>
                 <span className="flex items-center gap-1 font-mono text-[7px] md:text-[8px] text-ink-4">
                   <span
                     className="inline-block w-1.5 h-1.5 md:w-2 md:h-2"
-                    style={{ background: "#3a4f3a" }}
-                  />{" "}
+                    style={{ background: '#3a4f3a' }}
+                  />{' '}
                   specialist
                 </span>
               </div>
@@ -171,27 +171,27 @@ const Dashboard: React.FC = () => {
           {/* Bars — show all 12 on md+, 6 on mobile */}
           <div
             className="flex items-end gap-1 md:gap-2"
-            style={{ flex: "1 1 0", minHeight: 0, height: 0 }}
+            style={{ flex: '1 1 0', minHeight: 0, height: 0 }}
           >
             {chartData.map(({ a, b }, i) => (
               <div
                 key={i}
-                className={`flex-1 h-full flex items-end gap-px md:gap-0.5 ${i >= 6 ? "hidden md:flex" : ""}`}
+                className={`flex-1 h-full flex items-end gap-px md:gap-0.5 ${i >= 6 ? 'hidden md:flex' : ''}`}
               >
                 <div
                   className="flex-1"
                   style={{
                     height: `${(a / max) * 100}%`,
-                    background: "#1a2a1a",
-                    minHeight: "3px",
+                    background: '#1a2a1a',
+                    minHeight: '3px',
                   }}
                 />
                 <div
                   className="flex-1"
                   style={{
                     height: `${(b / max) * 100}%`,
-                    background: "#3a4f3a",
-                    minHeight: "3px",
+                    background: '#3a4f3a',
+                    minHeight: '3px',
                   }}
                 />
               </div>
@@ -200,22 +200,20 @@ const Dashboard: React.FC = () => {
 
           {/* X labels */}
           <div className="flex shrink-0 pt-1 border-t border-hairline/40">
-            {["W1", "", "", "W4", "", "", "W7", "", "", "W10", "", "W12"].map(
-              (w, i) => (
-                <span
-                  key={i}
-                  className={`font-mono text-[7px] md:text-[8px] text-ink-4 flex-1 text-center ${i >= 6 ? "hidden md:block" : ""}`}
-                >
-                  {w}
-                </span>
-              ),
-            )}
+            {['W1', '', '', 'W4', '', '', 'W7', '', '', 'W10', '', 'W12'].map((w, i) => (
+              <span
+                key={i}
+                className={`font-mono text-[7px] md:text-[8px] text-ink-4 flex-1 text-center ${i >= 6 ? 'hidden md:block' : ''}`}
+              >
+                {w}
+              </span>
+            ))}
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 // ── Hero ──────────────────────────────────────────────────────────────────────
 
@@ -240,7 +238,7 @@ export const Hero: React.FC = () => {
         {/* Headline */}
         <h1
           className="font-sans font-semibold text-ink leading-[0.92] tracking-[-0.035em] max-w-[18ch] mb-5 md:mb-6"
-          style={{ fontSize: "clamp(36px, 5.6vw, 88px)" }}
+          style={{ fontSize: 'clamp(36px, 5.6vw, 88px)' }}
         >
           AI That Truly
           <br />
@@ -252,19 +250,15 @@ export const Hero: React.FC = () => {
         {/* Sub-headline */}
         <p
           className="text-ink-3 max-w-[40ch] md:max-w-[48ch] leading-relaxed mb-7 md:mb-8"
-          style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}
+          style={{ fontSize: 'clamp(13px, 1.1vw, 17px)' }}
         >
-          An intelligent decision-making platform that delivers better
-          responses, reduces analytical burden, and drives measurable business
-          outcomes.
+          An intelligent decision-making platform that delivers better responses, reduces analytical
+          burden, and drives measurable business outcomes.
         </p>
 
         {/* CTA */}
         <div className="flex items-center justify-center mb-8 md:mb-12">
-          <a
-            href="https://playground.gikagraph.ai/"
-            className="request-access-btn"
-          >
+          <a href="https://playground.gikagraph.ai/" className="request-access-btn">
             <span>See the platform</span>
           </a>
         </div>
@@ -273,5 +267,5 @@ export const Hero: React.FC = () => {
         <Dashboard />
       </div>
     </section>
-  );
-};
+  )
+}

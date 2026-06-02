@@ -1,25 +1,19 @@
-import { footerColumns } from "./config/footerLinks";
-import { FooterColumn } from "./components/FooterColumn";
-import { FooterWordmark } from "./components/FooterWordmark";
+import { footerColumns } from './config/footerLinks'
+import { FooterColumn } from './components/FooterColumn'
+import { FooterWordmark } from './components/FooterWordmark'
 
 export const Footer = () => (
   <footer className="bg-ink text-paper pt-20 pb-8">
     <div className="mx-auto w-full max-w-360 px-[clamp(10px,2vw,20px)]">
       <h2 className="font-light text-mega text-paper text-balance uppercase">
-        GROUNDED{" "}
-        <span className="font-light text-sage-tint italic">MACHINES</span>,{" "}
-        <br />
+        GROUNDED <span className="font-light text-sage-tint italic">MACHINES</span>, <br />
         for serious work.
       </h2>
 
       <div className="grid grid-cols-2 sm:grid-cols-[2fr_1fr_1fr_1fr] gap-10 mt-16 pt-12 border-t border-white/10">
         <FooterWordmark />
         {footerColumns.map((col) => (
-          <FooterColumn
-            key={col.heading}
-            heading={col.heading}
-            links={col.links}
-          />
+          <FooterColumn key={col.heading} heading={col.heading} links={col.links} />
         ))}
       </div>
 
@@ -29,4 +23,4 @@ export const Footer = () => (
       </div>
     </div>
   </footer>
-);
+)

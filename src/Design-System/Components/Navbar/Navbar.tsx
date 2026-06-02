@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Logo } from "./components/Logo";
-import { NavLinks } from "./components/NavLinks";
-import { MobileMenu } from "./components/MobileMenu";
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Logo } from './components/Logo'
+import { NavLinks } from './components/NavLinks'
+import { MobileMenu } from './components/MobileMenu'
 
 export const Navbar = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const close = () => setMobileOpen(false);
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const close = () => setMobileOpen(false)
 
   return (
     <>
@@ -24,7 +24,7 @@ export const Navbar = () => {
             </Link>
 
             <button
-              className={`md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.25 transition-opacity duration-200 ${mobileOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+              className={`md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.25 transition-opacity duration-200 ${mobileOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
@@ -38,5 +38,5 @@ export const Navbar = () => {
 
       <MobileMenu open={mobileOpen} onClose={close} />
     </>
-  );
-};
+  )
+}

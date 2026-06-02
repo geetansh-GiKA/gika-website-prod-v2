@@ -1,36 +1,30 @@
-import { useState, useRef, useEffect, type FC } from "react";
+import { useState, useRef, useEffect, type FC } from 'react'
 
-const COMPANY_SIZES = [
-  "1 — 50",
-  "50 — 250",
-  "250 — 2,500",
-  "2,500 — 10,000",
-  "10,000+",
-];
+const COMPANY_SIZES = ['1 — 50', '50 — 250', '250 — 2,500', '2,500 — 10,000', '10,000+']
 
 type Props = {
-  value: string;
-  onChange: (value: string) => void;
-};
+  value: string
+  onChange: (value: string) => void
+}
 
 export const CompanySizeSelect: FC<Props> = ({ value, onChange }) => {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false);
+        setOpen(false)
       }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
 
   const handleSelect = (size: string) => {
-    onChange(size);
-    setOpen(false);
-  };
+    onChange(size)
+    setOpen(false)
+  }
 
   return (
     <div className="flex flex-col gap-1.5" ref={ref}>
@@ -43,18 +37,16 @@ export const CompanySizeSelect: FC<Props> = ({ value, onChange }) => {
           type="button"
           onClick={() => setOpen((o) => !o)}
           className="w-full flex items-center justify-between border-b border-hairline py-2 text-sm outline-none transition-colors"
-          style={{ borderColor: open ? "var(--color-ink)" : undefined }}
+          style={{ borderColor: open ? 'var(--color-ink)' : undefined }}
         >
-          <span className={value ? "text-ink" : "text-ink-4"}>
-            {value || "Select…"}
-          </span>
+          <span className={value ? 'text-ink' : 'text-ink-4'}>{value || 'Select…'}</span>
           <svg
             width="10"
             height="6"
             viewBox="0 0 10 6"
             fill="none"
             className="text-ink-3 transition-transform duration-200 shrink-0"
-            style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+            style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}
           >
             <path
               d="M1 1L5 5L9 1"
@@ -82,5 +74,5 @@ export const CompanySizeSelect: FC<Props> = ({ value, onChange }) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}

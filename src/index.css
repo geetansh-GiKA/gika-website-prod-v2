@@ -1,24 +1,24 @@
-@import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Unica+One&display=swap");
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Unica+One&display=swap');
 
 @theme {
-  --font-sans: "DM Sans", system-ui, sans-serif;
-  --font-mono: "Space Mono", ui-monospace, monospace;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
 
   /* ── Design-doc aliases ── */
-  --color-paper:        #f3f1ea;
-  --color-paper-2:      #ebe8df;
-  --color-paper-3:      #e3dfd2;
-  --color-surface:      #fbfaf6;
-  --color-ink:          #141414;
-  --color-ink-2:        #3a3a3a;
-  --color-ink-3:        #6b6b6b;
-  --color-ink-4:        #8f8f8f;
-  --color-hairline:     #d9d5c7;
-  --color-hairline-2:   #c8c4b6;
-  --color-sage:         #3a4f3a;
-  --color-sage-2:       #2c3d2c;
-  --color-sage-tint:    #d9e0d6;
+  --color-paper: #f3f1ea;
+  --color-paper-2: #ebe8df;
+  --color-paper-3: #e3dfd2;
+  --color-surface: #fbfaf6;
+  --color-ink: #141414;
+  --color-ink-2: #3a3a3a;
+  --color-ink-3: #6b6b6b;
+  --color-ink-4: #8f8f8f;
+  --color-hairline: #d9d5c7;
+  --color-hairline-2: #c8c4b6;
+  --color-sage: #3a4f3a;
+  --color-sage-2: #2c3d2c;
+  --color-sage-tint: #d9e0d6;
 
   /* ── Numeric scale (kept for Navbar/existing code) ── */
   --color-primary-100: #d9e0d6;
@@ -38,20 +38,20 @@
   --color-tertiary-600: #c8c4b6;
 
   /* ── Fluid type scale ── */
-  --font-size-mega:    clamp(72px, 11vw, 196px);
-  --line-height-mega:  0.88;
+  --font-size-mega: clamp(72px, 11vw, 196px);
+  --line-height-mega: 0.88;
   --letter-spacing-mega: -0.04em;
 
   --font-size-display: clamp(56px, 8vw, 140px);
   --line-height-display: 0.92;
   --letter-spacing-display: -0.035em;
 
-  --font-size-h1:      clamp(44px, 6.4vw, 112px);
-  --font-size-h2:      clamp(32px, 4.4vw, 72px);
-  --font-size-h3:      clamp(24px, 2.6vw, 40px);
-  --font-size-h4:      clamp(20px, 1.8vw, 26px);
-  --font-size-lead:    clamp(17px, 1.4vw, 20px);
-  --font-size-stat:    clamp(56px, 6.2vw, 96px);
+  --font-size-h1: clamp(44px, 6.4vw, 112px);
+  --font-size-h2: clamp(32px, 4.4vw, 72px);
+  --font-size-h3: clamp(24px, 2.6vw, 40px);
+  --font-size-h4: clamp(20px, 1.8vw, 26px);
+  --font-size-lead: clamp(17px, 1.4vw, 20px);
+  --font-size-stat: clamp(56px, 6.2vw, 96px);
 }
 
 @layer base {
@@ -62,18 +62,29 @@
   *::-webkit-scrollbar {
     display: none;
   }
-  html, body {
+  html,
+  body {
     background: var(--color-tertiary-200);
     color: var(--color-secondary-900);
-    font-family: "DM Sans", system-ui, sans-serif;
+    font-family: 'DM Sans', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
   body {
     background-image:
-      radial-gradient(color-mix(in oklab, var(--color-secondary-900), transparent 98%) 1px, transparent 1px),
-      radial-gradient(color-mix(in oklab, var(--color-secondary-900), transparent 99%) 1px, transparent 1px);
-    background-size: 3px 3px, 7px 7px;
-    background-position: 0 0, 1px 2px;
+      radial-gradient(
+        color-mix(in oklab, var(--color-secondary-900), transparent 98%) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        color-mix(in oklab, var(--color-secondary-900), transparent 99%) 1px,
+        transparent 1px
+      );
+    background-size:
+      3px 3px,
+      7px 7px;
+    background-position:
+      0 0,
+      1px 2px;
   }
   ::selection {
     background: var(--color-primary-600);
@@ -209,11 +220,19 @@
 }
 
 @keyframes pulseBar {
-  from { opacity: 0.3; }
-  to   { opacity: 0.8; }
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 0.8;
+  }
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

@@ -4,9 +4,8 @@ export const FooterWordmark = () => (
       Gikagraph
     </h5>
     <p className="text-white/70 text-sm max-w-[38ch]">
-      Entity intelligence built around specialized small language models.
-      Operated by analysts, scientists and engineers between New York and
-      Bengaluru.
+      Entity intelligence built around specialized small language models. Operated by analysts,
+      scientists and engineers between New York and Bengaluru.
     </p>
   </div>
-);
+)

@@ -1,93 +1,87 @@
-import React from "react";
+import React from 'react'
 
-const W = 800;
-const H = 500;
-const cx = W / 2;
-const cy = H / 2 + 30;
+const W = 800
+const H = 500
+const cx = W / 2
+const cy = H / 2 + 30
 
 // Project a point on a given ellipse ring at an angle
 function ellipsePoint(rx: number, ry: number, angleDeg: number) {
-  const rad = (angleDeg * Math.PI) / 180;
+  const rad = (angleDeg * Math.PI) / 180
   return {
     x: cx + rx * Math.cos(rad),
     y: cy + ry * Math.sin(rad),
-  };
+  }
 }
 
 const RINGS = [
   { rx: 340, ry: 170 },
   { rx: 240, ry: 120 },
   { rx: 130, ry: 65 },
-];
+]
 
 const CONNECTORS = [
   {
-    label: "Google Drive",
+    label: 'Google Drive',
     ring: 0,
     angle: -38,
-    sublabel: "Cloud Storage",
-    logo: "https://www.gstatic.com/images/branding/product/2x/drive_2020q4_48dp.png",
+    sublabel: 'Cloud Storage',
+    logo: 'https://www.gstatic.com/images/branding/product/2x/drive_2020q4_48dp.png',
   },
   {
-    label: "Dropbox",
+    label: 'Dropbox',
     ring: 0,
     angle: 145,
-    sublabel: "File Sync",
-    logo: "https://www.vectorlogo.zone/logos/dropbox/dropbox-icon.svg",
+    sublabel: 'File Sync',
+    logo: 'https://www.vectorlogo.zone/logos/dropbox/dropbox-icon.svg',
   },
   {
-    label: "Notion",
+    label: 'Notion',
     ring: 1,
     angle: 28,
-    sublabel: "Workspace",
-    logo: "https://www.notion.so/images/logo-ios.png",
+    sublabel: 'Workspace',
+    logo: 'https://www.notion.so/images/logo-ios.png',
   },
   {
-    label: "Salesforce",
+    label: 'Salesforce',
     ring: 1,
     angle: -155,
-    sublabel: "CRM",
-    logo: "https://c1.sfdcstatic.com/content/dam/sfdc-docs/www/logos/logo-salesforce.svg",
+    sublabel: 'CRM',
+    logo: 'https://c1.sfdcstatic.com/content/dam/sfdc-docs/www/logos/logo-salesforce.svg',
   },
   {
-    label: "Slack",
+    label: 'Slack',
     ring: 2,
     angle: 72,
-    sublabel: "Messaging",
-    logo: "https://a.slack-edge.com/80588/marketing/img/icons/icon_slack_hash_colored.png",
+    sublabel: 'Messaging',
+    logo: 'https://a.slack-edge.com/80588/marketing/img/icons/icon_slack_hash_colored.png',
   },
   {
-    label: "HubSpot",
+    label: 'HubSpot',
     ring: 2,
     angle: -110,
-    sublabel: "Marketing",
-    logo: "https://www.hubspot.com/hubfs/HubSpot_Logos/HubSpot-Inversed-Favicon.png",
+    sublabel: 'Marketing',
+    logo: 'https://www.hubspot.com/hubfs/HubSpot_Logos/HubSpot-Inversed-Favicon.png',
   },
   {
-    label: "Amazon S3",
+    label: 'Amazon S3',
     ring: 0,
     angle: 210,
-    sublabel: "Object Store",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Amazon-S3-Logo.svg",
+    sublabel: 'Object Store',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Amazon-S3-Logo.svg',
   },
-];
+]
 
-const stroke = "#3a4f3a";
-const strokeMuted = "rgba(58,79,58,0.3)";
-const textColor = "#3a3a3a";
-const mutedText = "#8f8f8f";
+const stroke = '#3a4f3a'
+const strokeMuted = 'rgba(58,79,58,0.3)'
+const textColor = '#3a3a3a'
+const mutedText = '#8f8f8f'
 
 export const GlobeViz: React.FC = () => {
   return (
-    <div
-      className="w-full h-full relative overflow-hidden"
-      style={{ background: "#edeae3" }}
-    >
+    <div className="w-full h-full relative overflow-hidden" style={{ background: '#edeae3' }}>
       {/* Diagonal hatch background */}
-      <svg
-        className="absolute inset-0 w-full h-full"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern
             id="globe-hatch"
@@ -117,22 +111,8 @@ export const GlobeViz: React.FC = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         {/* Crosshair lines */}
-        <line
-          x1={cx}
-          y1={20}
-          x2={cx}
-          y2={H - 20}
-          stroke={strokeMuted}
-          strokeWidth="0.6"
-        />
-        <line
-          x1={20}
-          y1={cy}
-          x2={W - 20}
-          y2={cy}
-          stroke={strokeMuted}
-          strokeWidth="0.6"
-        />
+        <line x1={cx} y1={20} x2={cx} y2={H - 20} stroke={strokeMuted} strokeWidth="0.6" />
+        <line x1={20} y1={cy} x2={W - 20} y2={cy} stroke={strokeMuted} strokeWidth="0.6" />
 
         {/* Concentric ellipse rings */}
         {RINGS.map(({ rx, ry }, i) => (
@@ -151,20 +131,20 @@ export const GlobeViz: React.FC = () => {
 
         {/* Connector points with label lines */}
         {CONNECTORS.map(({ label, ring, angle, sublabel, logo }) => {
-          const { rx, ry } = RINGS[ring];
-          const pt = ellipsePoint(rx, ry, angle);
+          const { rx, ry } = RINGS[ring]
+          const pt = ellipsePoint(rx, ry, angle)
 
-          const rad = (angle * Math.PI) / 180;
+          const rad = (angle * Math.PI) / 180
           // Pull label inward toward center so it never overflows the outer ring
-          const labelDist = 45;
-          const lx = pt.x - labelDist * Math.cos(rad);
-          const ly = pt.y - labelDist * Math.sin(rad);
+          const labelDist = 45
+          const lx = pt.x - labelDist * Math.cos(rad)
+          const ly = pt.y - labelDist * Math.sin(rad)
 
           // Text anchor based on which side of center the label ends up
-          const anchor = lx > cx ? "start" : "end";
-          const textOffsetX = lx > cx ? 6 : -6;
+          const anchor = lx > cx ? 'start' : 'end'
+          const textOffsetX = lx > cx ? 6 : -6
 
-          const clipId = `clip-${label.replace(/\s+/g, "-").toLowerCase()}`;
+          const clipId = `clip-${label.replace(/\s+/g, '-').toLowerCase()}`
 
           return (
             <g key={label}>
@@ -231,7 +211,7 @@ export const GlobeViz: React.FC = () => {
                 {sublabel}
               </text>
             </g>
-          );
+          )
         })}
 
         {/* Center hub dot */}
@@ -259,5 +239,5 @@ export const GlobeViz: React.FC = () => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}

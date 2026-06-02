@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { NAV_LINKS } from "../config/navLinks";
+import { Link } from 'react-router-dom'
+import { NAV_LINKS } from '../config/navLinks'
 
 export const NavLinks = () => (
   <div className="hidden md:flex items-center gap-7">
@@ -13,4 +13,4 @@ export const NavLinks = () => (
       </Link>
     ))}
   </div>
-);
+)

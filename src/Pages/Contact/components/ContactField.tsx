@@ -1,23 +1,15 @@
-import type { FC } from "react";
+import type { FC } from 'react'
 
 type FieldProps = {
-  id: string;
-  label: string;
-  placeholder?: string;
-  type?: string;
-};
+  id: string
+  label: string
+  placeholder?: string
+  type?: string
+}
 
-export const ContactField: FC<FieldProps> = ({
-  id,
-  label,
-  placeholder,
-  type = "text",
-}) => (
+export const ContactField: FC<FieldProps> = ({ id, label, placeholder, type = 'text' }) => (
   <div className="flex flex-col gap-1.5">
-    <label
-      className="text-[10px] font-mono tracking-[0.14em] uppercase text-ink-4"
-      htmlFor={id}
-    >
+    <label className="text-[10px] font-mono tracking-[0.14em] uppercase text-ink-4" htmlFor={id}>
       {label}
     </label>
     <input
@@ -27,4 +19,4 @@ export const ContactField: FC<FieldProps> = ({
       className="w-full bg-transparent border-b border-hairline text-sm text-ink placeholder:text-ink-4 outline-none focus:border-ink transition-colors py-2"
     />
   </div>
-);
+)
