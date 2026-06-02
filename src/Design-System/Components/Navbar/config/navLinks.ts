@@ -6,5 +6,5 @@ export type NavLink = {
 export const NAV_LINKS: NavLink[] = [
   { label: "Platform", href: "#platform" },
   { label: "Manifesto", href: "#manifesto" },
-  { label: "Journal", href: "#journal" },
+  { label: "Journal", href: "/Journal" },
 ];

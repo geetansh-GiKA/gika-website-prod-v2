@@ -39,14 +39,14 @@ export const MobileMenu = ({ open, onClose }: MobileMenuProps) => {
     {/* Nav links */}
     <nav className="flex flex-col flex-1 px-[clamp(20px,3vw,48px)] pt-6 gap-1">
       {NAV_LINKS.map(({ label, href }) => (
-        <a
+        <Link
           key={label}
-          href={href}
+          to={href}
           onClick={onClose}
           className="py-4 text-2xl font-medium text-ink border-b border-hairline last:border-0 hover:text-ink-2 transition-colors"
         >
           {label}
-        </a>
+        </Link>
       ))}
     </nav>
 

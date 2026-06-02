@@ -14,7 +14,7 @@ export const Home: FC = () => {
       <Navbar />
 
       <div className="px-0 sm:px-10 md:px-20 lg:px-30 xl:px-60">
-        <div className="min-h-screen border-x border-secondary-900/70">
+        <div className="border-x border-secondary-900/70">
           <Hero />
         </div>
       </div>

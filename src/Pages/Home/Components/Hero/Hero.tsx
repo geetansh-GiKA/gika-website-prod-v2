@@ -16,7 +16,10 @@ export const GradientBars: React.FC = () => {
 
   return (
     <div className="absolute inset-0 z-0 overflow-hidden">
-      <div className="flex h-full" style={{ transform: "translateZ(0)", backfaceVisibility: "hidden" }}>
+      <div
+        className="flex h-full"
+        style={{ transform: "translateZ(0)", backfaceVisibility: "hidden" }}
+      >
         {Array.from({ length: numBars }).map((_, index) => (
           <div
             key={index}
@@ -54,7 +57,7 @@ const Dashboard: React.FC = () => {
     { a: 91, b: 88 },
     { a: 78, b: 100 },
   ];
-  const max = Math.max(...chartData.flatMap(d => [d.a, d.b]));
+  const max = Math.max(...chartData.flatMap((d) => [d.a, d.b]));
 
   const metrics = [
     { label: "Entities resolved", value: "2.4M", change: "+12%", up: true },
@@ -73,10 +76,28 @@ const Dashboard: React.FC = () => {
       }}
     >
       {/* Diagonal hatch — full dashboard background */}
-      <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 0 }}>
+      <svg
+        className="absolute inset-0 w-full h-full"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ zIndex: 0 }}
+      >
         <defs>
-          <pattern id="hatch-bg" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
-            <line x1="0" y1="0" x2="0" y2="10" stroke="#c8c4b6" strokeWidth="0.6" strokeOpacity="0.35" />
+          <pattern
+            id="hatch-bg"
+            width="10"
+            height="10"
+            patternUnits="userSpaceOnUse"
+            patternTransform="rotate(-45)"
+          >
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="10"
+              stroke="#c8c4b6"
+              strokeWidth="0.6"
+              strokeOpacity="0.35"
+            />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="#f3f1ea" />
@@ -97,18 +118,22 @@ const Dashboard: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10 flex-1 flex flex-col gap-2 md:gap-3 p-2 md:p-3 overflow-hidden">
-
         {/* Metric cards — 2 cols on mobile, 4 on md+ */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 md:gap-2 shrink-0">
           {metrics.map(({ label, value, change, up }) => (
-            <div key={label} className="border border-hairline/60 p-2 md:p-2.5 flex flex-col gap-0.5 md:gap-1">
+            <div
+              key={label}
+              className="border border-hairline/60 p-2 md:p-2.5 flex flex-col gap-0.5 md:gap-1"
+            >
               <span className="font-mono text-[8px] md:text-[9px] uppercase tracking-widest text-ink-4 leading-tight">
                 {label}
               </span>
               <span className="font-sans font-semibold text-ink text-base md:text-lg leading-none tracking-[-0.02em]">
                 {value}
               </span>
-              <span className={`font-mono text-[8px] md:text-[9px] tracking-[0.06em] ${up ? "text-sage" : "text-red-500/70"}`}>
+              <span
+                className={`font-mono text-[8px] md:text-[9px] tracking-[0.06em] ${up ? "text-sage" : "text-red-500/70"}`}
+              >
                 {change} vs last mo.
               </span>
             </div>
@@ -125,10 +150,18 @@ const Dashboard: React.FC = () => {
               </span>
               <div className="flex items-center gap-2 md:gap-3">
                 <span className="flex items-center gap-1 font-mono text-[7px] md:text-[8px] text-ink-4">
-                  <span className="inline-block w-1.5 h-1.5 md:w-2 md:h-2" style={{ background: "#1a2a1a" }} /> frontier
+                  <span
+                    className="inline-block w-1.5 h-1.5 md:w-2 md:h-2"
+                    style={{ background: "#1a2a1a" }}
+                  />{" "}
+                  frontier
                 </span>
                 <span className="flex items-center gap-1 font-mono text-[7px] md:text-[8px] text-ink-4">
-                  <span className="inline-block w-1.5 h-1.5 md:w-2 md:h-2" style={{ background: "#3a4f3a" }} /> specialist
+                  <span
+                    className="inline-block w-1.5 h-1.5 md:w-2 md:h-2"
+                    style={{ background: "#3a4f3a" }}
+                  />{" "}
+                  specialist
                 </span>
               </div>
             </div>
@@ -136,28 +169,47 @@ const Dashboard: React.FC = () => {
           </div>
 
           {/* Bars — show all 12 on md+, 6 on mobile */}
-          <div className="flex items-end gap-1 md:gap-2" style={{ flex: "1 1 0", minHeight: 0, height: 0 }}>
+          <div
+            className="flex items-end gap-1 md:gap-2"
+            style={{ flex: "1 1 0", minHeight: 0, height: 0 }}
+          >
             {chartData.map(({ a, b }, i) => (
               <div
                 key={i}
                 className={`flex-1 h-full flex items-end gap-px md:gap-0.5 ${i >= 6 ? "hidden md:flex" : ""}`}
               >
-                <div className="flex-1" style={{ height: `${(a / max) * 100}%`, background: "#1a2a1a", minHeight: "3px" }} />
-                <div className="flex-1" style={{ height: `${(b / max) * 100}%`, background: "#3a4f3a", minHeight: "3px" }} />
+                <div
+                  className="flex-1"
+                  style={{
+                    height: `${(a / max) * 100}%`,
+                    background: "#1a2a1a",
+                    minHeight: "3px",
+                  }}
+                />
+                <div
+                  className="flex-1"
+                  style={{
+                    height: `${(b / max) * 100}%`,
+                    background: "#3a4f3a",
+                    minHeight: "3px",
+                  }}
+                />
               </div>
             ))}
           </div>
 
           {/* X labels */}
           <div className="flex shrink-0 pt-1 border-t border-hairline/40">
-            {["W1", "", "", "W4", "", "", "W7", "", "", "W10", "", "W12"].map((w, i) => (
-              <span
-                key={i}
-                className={`font-mono text-[7px] md:text-[8px] text-ink-4 flex-1 text-center ${i >= 6 ? "hidden md:block" : ""}`}
-              >
-                {w}
-              </span>
-            ))}
+            {["W1", "", "", "W4", "", "", "W7", "", "", "W10", "", "W12"].map(
+              (w, i) => (
+                <span
+                  key={i}
+                  className={`font-mono text-[7px] md:text-[8px] text-ink-4 flex-1 text-center ${i >= 6 ? "hidden md:block" : ""}`}
+                >
+                  {w}
+                </span>
+              ),
+            )}
           </div>
         </div>
       </div>
@@ -169,12 +221,11 @@ const Dashboard: React.FC = () => {
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden">
+    <section className="relative flex flex-col overflow-hidden">
       <div className="absolute inset-0 bg-paper" />
       <GradientBars />
 
       <div className="relative z-10 flex flex-col flex-1 items-center px-5 md:px-14 pt-16 md:pt-20 pb-8 md:pb-12 text-center">
-
         {/* Tag */}
         <div className="flex items-center gap-2 mb-6 md:mb-8">
           <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.16em] text-ink-3">
@@ -210,7 +261,10 @@ export const Hero: React.FC = () => {
 
         {/* CTA */}
         <div className="flex items-center justify-center mb-8 md:mb-12">
-          <a href="https://playground.gikagraph.ai/" className="request-access-btn">
+          <a
+            href="https://playground.gikagraph.ai/"
+            className="request-access-btn"
+          >
             <span>See the platform</span>
           </a>
         </div>
