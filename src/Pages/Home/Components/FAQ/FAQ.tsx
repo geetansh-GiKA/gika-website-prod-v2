@@ -60,7 +60,7 @@ const FAQRow: React.FC<{ item: FAQItem; index: number }> = ({ item, index }) => 
         <p
           className="flex-1 font-light leading-snug tracking-[-0.015em] transition-colors duration-200"
           style={{
-            fontSize: 'clamp(1rem, 1.4vw, 1.25rem)',
+            fontSize: 'clamp(1rem, 2vw, 1.25rem)',
             color: open ? 'var(--color-ink)' : 'var(--color-ink-2)',
           }}
         >
@@ -107,10 +107,10 @@ const FAQRow: React.FC<{ item: FAQItem; index: number }> = ({ item, index }) => 
         <p
           className="pb-7 font-light leading-relaxed"
           style={{
-            fontSize: 'clamp(0.85rem, 1vw, 1rem)',
+            fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
             color: 'var(--color-ink-4)',
             maxWidth: '72ch',
-            paddingLeft: 'calc(10px + 1.5rem)', // align under question text
+            paddingLeft: 'calc(10px + 1.5rem)',
           }}
         >
           {item.answer}
@@ -143,13 +143,13 @@ export const FAQ: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-0">
         {/* LEFT — section label */}
         <div
-          className="py-12 md:py-16 lg:pr-12"
-          style={{ borderRight: '1px solid var(--color-secondary-900)' }}
+          className="px-6 py-10 sm:px-10 md:px-14 md:py-16 lg:pr-12 lg:pl-0 border-b lg:border-b-0 lg:border-r"
+          style={{ borderColor: 'var(--color-secondary-900)' }}
         >
           <p
             className="mt-5 font-light leading-relaxed"
             style={{
-              fontSize: 'clamp(0.85rem, 1vw, 1rem)',
+              fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
               color: 'var(--color-ink-4)',
               maxWidth: '32ch',
             }}
@@ -176,7 +176,7 @@ export const FAQ: React.FC = () => {
         </div>
 
         {/* RIGHT — accordion list */}
-        <div className="py-12 md:py-16 lg:pl-12">
+        <div className="px-6 py-10 sm:px-10 md:px-14 md:py-16 lg:pl-12 lg:pr-0">
           {/* Top hairline inside right column */}
           <div
             className="w-full h-px mb-0"

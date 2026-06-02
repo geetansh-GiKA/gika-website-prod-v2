@@ -48,15 +48,15 @@ export const Customers: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* LEFT — editorial quote panel */}
         <div
-          className="relative flex flex-col justify-between py-12 md:py-16"
-          style={{ borderRight: '1px solid var(--color-secondary-900)' }}
+          className="relative flex flex-col justify-between px-6 py-10 sm:px-10 md:px-14 md:py-16 lg:border-r"
+          style={{ borderColor: 'var(--color-secondary-900)' }}
         >
           {/* Highlighted pull-quote */}
-          <div className="my-auto pt-10 pb-6">
+          <div className="my-auto pt-6 pb-6 md:pt-10">
             <p
               className="font-light leading-[1.15] tracking-[-0.02em]"
               style={{
-                fontSize: 'clamp(1.75rem, 3vw, 2.75rem)',
+                fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
                 color: 'var(--color-ink)',
               }}
             >
@@ -65,9 +65,9 @@ export const Customers: React.FC = () => {
 
             {/* Full quote below */}
             <p
-              className="mt-5 font-light leading-relaxed"
+              className="mt-4 md:mt-5 font-light leading-relaxed"
               style={{
-                fontSize: 'clamp(0.85rem, 1vw, 1rem)',
+                fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
                 color: 'var(--color-ink-4)',
                 maxWidth: '48ch',
               }}
@@ -77,11 +77,16 @@ export const Customers: React.FC = () => {
           </div>
         </div>
 
-        {/* RIGHT — logo display + stat */}
-        <div className="relative flex flex-col items-center justify-center gap-10 px-8 py-12 md:px-14 md:py-16 overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-            <img src={t.logo} alt="" className="w-[70%] max-w-xs object-contain" />
-          </div>
+        {/* RIGHT — logo display */}
+        <div
+          className="relative flex items-center justify-center px-8 py-12 md:px-14 md:py-16 min-h-55 sm:min-h-65 lg:min-h-0 border-t lg:border-t-0"
+          style={{ borderColor: 'var(--color-secondary-900)' }}
+        >
+          <img
+            src={t.logo}
+            alt={t.name}
+            className="w-[55%] max-w-50 sm:w-[45%] sm:max-w-60 object-contain opacity-80"
+          />
         </div>
       </div>
 
