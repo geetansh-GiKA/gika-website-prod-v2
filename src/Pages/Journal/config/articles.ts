@@ -43,19 +43,19 @@ export const articles: Article[] = [
 
 GiKA blends your internal data with global knowledge, understands complex relationships between business entities, and reasons across multiple layers to deliver insights that drive smarter, strategic decisions.
 
-## 1. Entity-Aware Reasoning Engine
+## Entity-Aware Reasoning Engine
 
 At the heart is a **graph-based language model** that deeply understands business-specific entities and their interrelationships.
 
 Not a generic chatbot — this is a **reasoning engine grounded in your unique operational and decision-making context**.
 
-## 2. Business-Tuned Graph + Language Models
+## Business-Tuned Graph + Language Models
 
 GiKaGraph creates a **customized knowledge graph** for each business, automatically mapping different entities.
 
 Layered on top of this is a **small language model tailored to that graph**, enabling precise and context-rich responses.
 
-## 3. Blended Knowledge: Internal + World Context
+## Blended Knowledge: Internal + World Context
 
 Strategic insights often require more than internal data. GiKaGraph blends enterprise data with world knowledge:
 
@@ -68,7 +68,7 @@ This delivers truly comprehensive insights.
 
 **Example:** "Why are sales down in Q1?" → Response considers product issues and market slowdowns, competitor moves, or changing consumer behavior.
 
-## 4. Natural Language to Strategic Analysis
+## Natural Language to Strategic Analysis
 
 Converts vague or broad business questions into **multi-step analytical reasoning**.
 
@@ -76,21 +76,18 @@ Converts vague or broad business questions into **multi-step analytical reasonin
 
 **Returns:** A traceable, data-backed breakdown by region, supplier cost trends, and pricing shifts — with citations and next steps.
 
-## 5. Composable Intelligence Layer
-
-Integrates with your existing stack:
+## Integrates with your existing stack
 
 - **Snowflake**
 - **dbt**
 - **BigQuery**
 - **Salesforce**
-- And more...
 
 Acts as a **semantic and reasoning layer** — unifying fragmented data sources into one intelligent conversation layer.
 
-## Why GiKaGraph is Different
+## Why GIKA is Different
 
-GiKaGraph isn't vertical SaaS or a dashboard replacement — it's an **AI-native intelligence layer** that adapts to your business, not the other way around.
+GIKA isn't vertical SaaS or a dashboard replacement — it's an **AI-native intelligence layer** that adapts to your business, not the other way around.
 
 Our architecture allows us to train business-specific models quickly, giving companies **strategic foresight, not just rear-view metrics**.`,
   },
@@ -142,7 +139,7 @@ In enterprises, most data and knowledge are:
 
 This is why LLMs fail to deliver consistent, trustworthy, or deeply contextual outputs in business settings. The other problems are inherent context window limitations and data privacy issues that businesses face.
 
-> The lesson is clear: The path forward to build semantically more intelligent systems is to bring more structure to the input data.
+The lesson is clear: The path forward to build semantically more intelligent systems is to bring more structure to the input data.
 
 **Knowledge Graphs are the way to structurally represent the data.** Though building KG is non-trivial, the key to unlocking true enterprise AI is imposing symbolic structure on unstructured domains — the same way code structure enables Copilot.
 
@@ -223,33 +220,23 @@ We don't build "AI that help do things faster." **We build a cognitive twin that
 
 ## Core Differences: GiKA vs. Existing AI Agents
 
-### Scope of Intelligence
-
-**Existing AI agents** automate execution tasks with specialized workflows.
-
-**GiKA** performs cognitive work — evaluation, rationale and counterfactual reasoning — with built-in logic and auditability.
 
 ### Technology Architecture
 
-**Existing AI** is an agentic orchestration layer connecting firm data to task automations. While the current AI agents reduce human effort, **GiKA augments their reasoning**.
 
-**GiKA** builds a living entity graph + domain intelligence services enabling:
+| Capability | Description |
+|---|---|
+| **Stateful, temporal reasoning** | Maintains context across time and evolving business state |
+| **Explainability grounded in logic** | Every output is traceable to structured reasoning, not pattern-matching |
+| **Dynamic context evolution** | The graph grows with your business — it's never static |
 
-- Stateful, temporal reasoning
-- Explainability grounded in logic
-- Dynamic context evolution
+### Where Existing Agents Fall Short
 
-This is our real moat.
-
-GiKA is not a workflow bot — it is a reproducible reasoning substrate that becomes part of their cognitive infrastructure.
-
-The current agentic stacks and RAG pipelines hit limits in:
-
-- Counterfactual reasoning
-- Coherence
-- Explainability
-
-GiKA is built to solve exactly these limits.
+| Limitation | Why It Matters |
+|---|---|
+| **Counterfactual reasoning** | Can't answer "what if we had done X instead?" |
+| **Coherence** | Outputs drift without a structured knowledge anchor |
+| **Explainability** | Black-box outputs can't be audited or trusted at scale |
 
 ## Workflow AI vs. Reasoning AI (GiKA)
 

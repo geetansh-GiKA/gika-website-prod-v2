@@ -229,10 +229,6 @@ export const Hero: React.FC = () => {
           <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.16em] text-ink-3">
             Entity Intelligence
           </span>
-          <span className="w-6 md:w-8 h-px bg-hairline-2" />
-          <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.16em] text-sage">
-            Now in Private Beta
-          </span>
         </div>
 
         {/* Headline */}
