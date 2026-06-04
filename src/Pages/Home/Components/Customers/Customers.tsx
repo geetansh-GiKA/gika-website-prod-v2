@@ -13,7 +13,7 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     quote:
-      "A platform that cannot show your work is a gallery with the lights off. We joined Gikagraph because every artist deserves to be seen — not buried by an algorithm that doesn't understand what beauty means.",
+      'GikaGraph transformed how we handle product search and recommendations. The improved data quality and entity matching led to substantially better discovery rates for niche product searches. ',
     highlight: 'Every artist deserves to be seen.',
     name: 'Drezily',
     role: 'Fashion Brand',
