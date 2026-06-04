@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { NAV_LINKS } from '../config/navLinks'
 import { Logo } from './Logo'
 
@@ -9,6 +9,23 @@ type MobileMenuProps = {
 }
 
 export const MobileMenu = ({ open, onClose }: MobileMenuProps) => {
+  const navigate = useNavigate()
+
+  const handleHashLink = (e: React.MouseEvent, href: string) => {
+    e.preventDefault()
+    onClose()
+    const id = href.slice(1)
+    const el = document.getElementById(id)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      navigate('/')
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+    }
+  }
+
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => {
@@ -48,16 +65,27 @@ export const MobileMenu = ({ open, onClose }: MobileMenuProps) => {
 
       {/* Nav links */}
       <nav className="flex flex-col flex-1 px-[clamp(20px,3vw,48px)] pt-6 gap-1">
-        {NAV_LINKS.map(({ label, href }) => (
-          <Link
-            key={label}
-            to={href}
-            onClick={onClose}
-            className="py-4 text-2xl font-medium text-ink border-b border-hairline last:border-0 hover:text-ink-2 transition-colors"
-          >
-            {label}
-          </Link>
-        ))}
+        {NAV_LINKS.map(({ label, href }) =>
+          href.startsWith('#') ? (
+            <a
+              key={label}
+              href={href}
+              onClick={(e) => handleHashLink(e, href)}
+              className="py-4 text-2xl font-medium text-ink border-b border-hairline last:border-0 hover:text-ink-2 transition-colors"
+            >
+              {label}
+            </a>
+          ) : (
+            <Link
+              key={label}
+              to={href}
+              onClick={onClose}
+              className="py-4 text-2xl font-medium text-ink border-b border-hairline last:border-0 hover:text-ink-2 transition-colors"
+            >
+              {label}
+            </Link>
+          ),
+        )}
       </nav>
 
       {/* CTA */}

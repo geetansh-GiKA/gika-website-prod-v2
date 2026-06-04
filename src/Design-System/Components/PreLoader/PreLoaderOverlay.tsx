@@ -9,7 +9,7 @@ interface PreLoaderProps {
 
 export const PreLoader: React.FC<PreLoaderProps> = ({ children }) => {
   const words = ['Graphs', 'Connect', 'AI', 'Insights', 'GIKA']
-  const [done, setDone] = useState(false)
+  const [done, setDone] = useState(() => sessionStorage.getItem('preloader-seen') === '1')
   const overlayRef = useRef<HTMLDivElement>(null)
 
   const handleFinalWord = (refs: PreLoaderRefs) => {
@@ -24,7 +24,10 @@ export const PreLoader: React.FC<PreLoaderProps> = ({ children }) => {
     const getRect = (el: HTMLElement) => el.getBoundingClientRect()
 
     const tl = gsap.timeline({
-      onComplete: () => setDone(true),
+      onComplete: () => {
+        sessionStorage.setItem('preloader-seen', '1')
+        setDone(true)
+      },
     })
 
     // Kill the looping timeline so no more word moves happen

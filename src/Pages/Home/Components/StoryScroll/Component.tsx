@@ -37,7 +37,7 @@ export default function FlowArtDefaultDemo() {
                   </p>
                   <h2
                     className="font-sans font-semibold leading-none tracking-tight text-white"
-                    style={{ fontSize: 'clamp(1.6rem, 3.5vw, 3rem)' }}
+                    style={{ fontSize: 'clamp(3.2rem, 7vw, 6rem)' }}
                   >
                     {heading}
                   </h2>

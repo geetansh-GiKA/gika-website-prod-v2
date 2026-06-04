@@ -19,7 +19,7 @@ export const Footer = () => (
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pt-10 mt-16 border-t border-white/10 font-mono text-[11px] tracking-[0.12em] uppercase text-white/50">
         <span>© 2026 Gikagraph, Inc. · All rights reserved.</span>
-        <span>v. 1.0 · Vol. 01 / May 27, 2026</span>
+        <span>May 27, 2026</span>
       </div>
     </div>
   </footer>

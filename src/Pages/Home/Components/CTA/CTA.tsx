@@ -61,16 +61,8 @@ export const CTA: React.FC = () => {
             </p>
 
             <div className="flex flex-wrap gap-3.5">
-              <a href="#contact" className="request-access-btn-dark">
+              <a href="/contact" className="request-access-btn-dark">
                 <span>Request a demo</span>
-              </a>
-
-              <a
-                href="#manifesto"
-                className="request-access-btn-dark"
-                style={{ borderColor: 'rgba(255,255,255,0.3)' }}
-              >
-                <span>Read the manifesto</span>
               </a>
             </div>
           </div>

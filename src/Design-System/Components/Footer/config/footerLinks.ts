@@ -1,27 +1,20 @@
 export const footerColumns = [
   {
     heading: 'Platform',
-    links: [
-      { label: 'Capabilities', href: '#' },
-      { label: 'Entity resolution', href: '#' },
-      { label: 'Specialized SLMs', href: '#' },
-      { label: 'Provenance', href: '#' },
-    ],
+    links: [{ label: 'Product', href: 'https://product.gikagraph.ai/login' }],
   },
   {
     heading: 'Company',
     links: [
-      { label: 'Manifesto', href: '#manifesto' },
-      { label: 'Journal', href: '#journal' },
-      { label: 'Contact', href: '#contact' },
-      { label: 'Security', href: '#' },
+      { label: 'Newsletter', href: '/newsletter' },
+      { label: 'Contact', href: '/contact' },
     ],
   },
   {
     heading: 'Connect',
     links: [
-      { label: 'LinkedIn', href: '#' },
-      { label: 'Calendar', href: '#' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/company/gika-ai/' },
+      { label: 'Calendar', href: 'https://cal.com/gikagraph/30-mins' },
     ],
   },
 ] as const

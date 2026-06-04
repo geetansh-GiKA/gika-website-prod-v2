@@ -123,6 +123,7 @@ const FAQRow: React.FC<{ item: FAQItem; index: number }> = ({ item, index }) => 
 export const FAQ: React.FC = () => {
   return (
     <section
+      id="FAQ"
       className="relative w-full overflow-hidden"
       style={{
         backgroundColor: 'var(--color-paper)',
