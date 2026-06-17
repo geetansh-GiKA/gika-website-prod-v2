@@ -13,7 +13,7 @@ export const sections = [
       'Industry-specific fine-tuning',
     ],
     bulletsLabel: 'Domain-Tuned SLMs',
-    imageSrc: '/public/Platform/eight.png',
+    imageSrc: '/Platform/eight.png',
   },
   {
     num: '02',
@@ -27,6 +27,6 @@ export const sections = [
       'Connected data sources',
     ],
     bulletsLabel: 'Unified Knowledge Graph',
-    imageSrc: '/public/Platform/seven.png',
+    imageSrc: '/Platform/seven.png',
   },
 ]
