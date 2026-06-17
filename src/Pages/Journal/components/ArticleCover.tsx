@@ -16,12 +16,6 @@ const stripeByVariant: Record<ArticleVariant, string> = {
   dark: 'repeating-linear-gradient(135deg,transparent 0,transparent 14px,rgba(255,255,255,0.06) 14px,rgba(255,255,255,0.06) 15px)',
 }
 
-const bgByVariant: Record<ArticleVariant, React.CSSProperties> = {
-  default: { background: 'var(--color-paper-2)', border: '1px solid var(--color-hairline)' },
-  sage: { background: 'var(--color-sage-tint)', border: '1px solid #c4cdc0' },
-  dark: { background: '#1f2620', border: '1px solid #2c3328' },
-}
-
 const captionByVariant: Record<ArticleVariant, React.CSSProperties> = {
   default: {
     background: 'var(--color-paper)',

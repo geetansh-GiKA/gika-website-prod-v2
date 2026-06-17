@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 interface Testimonial {
   quote: string
@@ -22,7 +22,7 @@ const testimonials: Testimonial[] = [
 ]
 
 export const Customers: React.FC = () => {
-  const [active, setActive] = useState(0)
+  const active = 0
   const t = testimonials[active]
 
   return (

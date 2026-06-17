@@ -9,14 +9,7 @@ interface Card1Props {
   total: number
 }
 
-export default function Card1({
-  body,
-  bulletsLabel,
-  statBullets,
-  textBullets,
-  num,
-  total,
-}: Card1Props) {
+export default function Card1({ body, statBullets, textBullets, num, total }: Card1Props) {
   return (
     <>
       {/*LEFT*/}
