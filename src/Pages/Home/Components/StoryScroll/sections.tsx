@@ -13,7 +13,7 @@ export const sections = [
       'Industry-specific fine-tuning',
     ],
     bulletsLabel: 'Domain-Tuned SLMs',
-    imageSrc: '/public/Platform/six.png',
+    imageSrc: '/public/Platform/eight.png',
   },
   {
     num: '02',
