@@ -13,8 +13,8 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     quote:
-      'GikaGraph transformed how we handle product search and recommendations. The improved data quality and entity matching led to substantially better discovery rates for niche product searches. ',
-    highlight: 'Every artist deserves to be seen.',
+      'GikaGraph transformed how we handle product search and recommendations. The improved data quality and entity matching led to substantially better discovery rates for niche product searches.',
+    highlight: 'Divya Manjari',
     name: 'Drezily',
     role: 'Fashion Brand',
     logo: '/Customers/Drezily.png',

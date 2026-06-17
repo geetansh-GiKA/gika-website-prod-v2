@@ -9,32 +9,22 @@ const faqs: FAQItem[] = [
   {
     question: 'What is Gikagraph?',
     answer:
-      'Gikagraph is an AI-powered entity intelligence platform that helps brands, creators, and businesses become discoverable, understandable, and influential in AI-driven ecosystems. We map the connections between entities so your work reaches the right audiences.',
+      'GiKA AI is an intelligent decision agent designed for faster decisions, better traceability, market analysis, and competitive intelligence risk, powered by specialized AI models tailored for enterprise-scale performance.',
   },
   {
-    question: 'How does entity intelligence work?',
+    question: 'How can GiKA AI benefit my business?',
     answer:
-      'Entity intelligence analyzes the relationships between people, brands, products, and ideas across the web. Gikagraph builds a structured knowledge graph from these connections, making it possible for AI systems to accurately represent and surface your entity when it matters most.',
+      'GiKA AI transforms fragmented data into actionable insights, helps detect market and competition shifts, ensures data ownership, and delivers quantifiable business impact with AI-powered decision intelligence.',
   },
   {
-    question: 'Who is Gikagraph for?',
+    question: 'Is there a free trial available?',
     answer:
-      'Gikagraph is built for brands, artists, creators, and enterprises who want to control their presence in an AI-first world. If your entity exists in the world — a brand, a person, a product — Gikagraph helps ensure it is seen and understood correctly.',
+      'Yes. We offer a guided pilot program that allows you to experience the power of entity-aware AI in your own environment. Our deployment team sets everything up, connects your data, and lets your users try GiKA in real-world scenarios—so you can see the value in days, not months.',
   },
   {
-    question: 'How do I get access?',
+    question: 'What type of support GiKA AI provide?',
     answer:
-      'We are currently in early access. You can request access directly from our website. We onboard partners in cohorts and work closely with each team to ensure the best results from day one.',
-  },
-  {
-    question: 'Is my data secure?',
-    answer:
-      'Yes. Data security and privacy are foundational to how we build. All entity data is encrypted in transit and at rest. We never share your proprietary data with third parties and follow strict data governance practices.',
-  },
-  {
-    question: 'What makes Gikagraph different from SEO tools?',
-    answer:
-      'Traditional SEO optimizes for keyword rankings in search engines. Gikagraph focuses on entity recognition and relationship mapping — the layer that AI models use to understand and represent the world. It is the infrastructure for the next era of discoverability, beyond links and keywords.',
+      'With GiKA, you’re never onboarding alone. Our dedicated FDEs partner with your team end-to-end to deliver a seamless, stress-free deployment experience. We guide, configure, fine-tune, and support until everything is running flawlessly and value is flowing',
   },
 ]
 

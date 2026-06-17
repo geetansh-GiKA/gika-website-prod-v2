@@ -42,8 +42,8 @@ export const CTA: React.FC = () => {
               color: 'var(--color-paper)',
             }}
           >
-            Bring your Entities. <br />
-            We'll bring the Model.
+            Bring your Data. <br />
+            We'll bring the Intelligence.
           </h2>
 
           {/* RIGHT — body + buttons, aligned to bottom */}
@@ -56,8 +56,8 @@ export const CTA: React.FC = () => {
                 maxWidth: '38ch',
               }}
             >
-              A 45-minute call with an applied scientist. We'll show you a working specialized SLM
-              grounded on a sample of your graph — before you sign anything.
+              A 45-minute call with an applied engineer. We'll show you a working specialized SLM
+              grounded on a sample of your data — before you sign anything.
             </p>
 
             <div className="flex flex-wrap gap-3.5">
