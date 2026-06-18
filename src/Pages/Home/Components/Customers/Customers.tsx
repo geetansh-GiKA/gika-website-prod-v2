@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 interface Testimonial {
   quote: string
@@ -19,10 +19,18 @@ const testimonials: Testimonial[] = [
     role: 'Fashion Brand',
     logo: '/Customers/Drezily.png',
   },
+  {
+    quote:
+      'GiKA AI didn’t just answer questions — it demonstrated true intelligence: contextual accuracy across massive, constantly evolving knowledge, human-level negotiation, and real-time competitive understanding at scale.',
+    highlight: 'Vineet Chaturvedi',
+    name: 'Edureka',
+    role: 'Ex-CEO, Edureka',
+    logo: '/Customers/Edureka.png',
+  },
 ]
 
 export const Customers: React.FC = () => {
-  const active = 0
+  const [active, setActive] = useState(0)
   const t = testimonials[active]
 
   return (
@@ -75,6 +83,27 @@ export const Customers: React.FC = () => {
               {t.quote}
             </p>
           </div>
+
+          {/* Pagination dots */}
+          {testimonials.length > 1 && (
+            <div className="flex items-center gap-2">
+              {testimonials.map((item, index) => (
+                <button
+                  key={item.name}
+                  type="button"
+                  onClick={() => setActive(index)}
+                  aria-label={`Show testimonial from ${item.name}`}
+                  aria-current={index === active}
+                  className="h-2 rounded-full transition-all"
+                  style={{
+                    width: index === active ? '1.5rem' : '0.5rem',
+                    backgroundColor:
+                      index === active ? 'var(--color-ink)' : 'var(--color-secondary-900)',
+                  }}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* RIGHT — logo display */}
